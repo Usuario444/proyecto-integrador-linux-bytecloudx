@@ -31,9 +31,8 @@ internos del sistema operativo.
 - **Sección:**
 - **Docente:**
 - **Integrantes:**
-  - Nombre 1
-  - Nombre 2
-  - ...
+  - 
+  - 
 
 ## 🏢 Organización seleccionada
 - **Nombre:** ByteCloudX
@@ -54,12 +53,12 @@ internos del sistema operativo.
 **Usuarios:**
 | Usuario | Área | Grupo |
 |---|---|---|
-| jrivera | Infraestructura Cloud (jefe) | infraestructura |
-| mtorres | Infraestructura Cloud (técnico) | infraestructura |
-| lcastro | Seguridad Informática | seguridad |
-| pvega | Monitoreo (SOC) | seguridad |
-| agomez | Administración (gerente) | administracion |
-| dflores | Administración (asistente) | administracion |
+| xxxxx | Infraestructura Cloud (jefe) | infraestructura |
+| xxxxx | Infraestructura Cloud (técnico) | infraestructura |
+| xxx | Seguridad Informática | seguridad |
+| xxxx | Monitoreo (SOC) | seguridad |
+| xxxxxx | Administración (gerente) | administracion |
+| xxxxxx| Administración (asistente) | administracion |
 
 ## ✅ Estado del proyecto
 
