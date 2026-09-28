@@ -89,7 +89,7 @@ internos del sistema operativo.
   - Pendiente: informe final, VM funcional y sustentación
 
 ## ⚙️ Tecnologías utilizadas
-- Ubuntu Server LTS (VirtualBox)
+- Ubuntu Server LTS (VMware)
 - Java 17+
 - Git / GitHub
 - Bash
