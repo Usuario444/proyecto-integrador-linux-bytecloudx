@@ -1,7 +1,7 @@
 # 🐧 Proyecto Integrador - Sistemas Operativos
 ## Implementación y Administración de una Plataforma GNU/Linux — ByteCloudX
 
-![Java](https://img.shields.io/badge/Java-17%2B-orange?logo=openjdk)
+![Java](https://img.shields.io/badge/Java-21%2B-orange?logo=openjdk)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-Server%20LTS-E95420?logo=ubuntu)
 ![Git](https://img.shields.io/badge/Git-GitHub-black?logo=github)
 ![Estado](https://img.shields.io/badge/Progreso-PC2%20completado-brightgreen)
