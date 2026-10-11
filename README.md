@@ -53,12 +53,12 @@ internos del sistema operativo.
 **Usuarios:**
 | Usuario | Área | Grupo |
 |---|---|---|
-| xxxxx | Infraestructura Cloud (jefe) | infraestructura |
-| xxxxx | Infraestructura Cloud (técnico) | infraestructura |
-| xxx | Seguridad Informática | seguridad |
-| xxxx | Monitoreo (SOC) | seguridad |
-| xxxxxx | Administración (gerente) | administracion |
-| xxxxxx| Administración (asistente) | administracion |
+| gerardo | Infraestructura Cloud (jefe) | infraestructura |
+| farid | Infraestructura Cloud (técnico) | infraestructura |
+| erick | Seguridad Informática | seguridad |
+| marcelo | Monitoreo (SOC) | seguridad |
+| fernanda | Administración (gerente) | administracion |
+| sofia| Administración (asistente) | administracion |
 
 ## ✅ Estado del proyecto
 
