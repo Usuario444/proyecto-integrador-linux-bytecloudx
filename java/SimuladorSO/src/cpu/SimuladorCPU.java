@@ -71,8 +71,9 @@ public class SimuladorCPU {
             }
             int llegada = consola.leerEntero("  Tiempo de llegada (>= 0): ", 0, 10000);
             int ejecucion = consola.leerEntero("  Tiempo de ejecución / ráfaga (> 0): ", 1, 10000);
+            int prioridad = consola.leerEntero("  Prioridad (>= 1, menor número = mayor prioridad): ", 1, 100);
 
-            lista.add(new Proceso(id, llegada, ejecucion));
+            lista.add(new Proceso(id, llegada, ejecucion, prioridad));
         }
         return lista;
     }
@@ -82,25 +83,33 @@ public class SimuladorCPU {
         System.out.println("1. Silberschatz clásico (P1: lleg=0 ráf=24, P2: lleg=0 ráf=3, P3: lleg=0 ráf=3)");
         System.out.println("2. Llegadas escalonadas con CPU ocioso (P1: lleg=0 ráf=3, P2: lleg=2 ráf=6, P3: lleg=10 ráf=4)");
         System.out.println("3. Desempate simultáneo y quantum variable (P1: lleg=0 ráf=5, P2: lleg=1 ráf=4, P3: lleg=2 ráf=2, P4: lleg=4 ráf=1)");
+        System.out.println("4. Caso de 5 procesos para informe ByteCloudX (P1 a P5)");
 
-        int caso = consola.leerEntero("Seleccione un caso (1-3): ", 1, 3);
+        int caso = consola.leerEntero("Seleccione un caso (1-4): ", 1, 4);
         List<Proceso> procesos = new ArrayList<>();
         switch (caso) {
             case 1 -> {
-                procesos.add(new Proceso("P1", 0, 24));
-                procesos.add(new Proceso("P2", 0, 3));
-                procesos.add(new Proceso("P3", 0, 3));
+                procesos.add(new Proceso("P1", 0, 24, 1));
+                procesos.add(new Proceso("P2", 0, 3, 2));
+                procesos.add(new Proceso("P3", 0, 3, 3));
             }
             case 2 -> {
-                procesos.add(new Proceso("P1", 0, 3));
-                procesos.add(new Proceso("P2", 2, 6));
-                procesos.add(new Proceso("P3", 10, 4));
+                procesos.add(new Proceso("P1", 0, 3, 1));
+                procesos.add(new Proceso("P2", 2, 6, 2));
+                procesos.add(new Proceso("P3", 10, 4, 3));
             }
             case 3 -> {
-                procesos.add(new Proceso("P1", 0, 5));
-                procesos.add(new Proceso("P2", 1, 4));
-                procesos.add(new Proceso("P3", 2, 2));
-                procesos.add(new Proceso("P4", 4, 1));
+                procesos.add(new Proceso("P1", 0, 5, 3));
+                procesos.add(new Proceso("P2", 1, 4, 1));
+                procesos.add(new Proceso("P3", 2, 2, 4));
+                procesos.add(new Proceso("P4", 4, 1, 2));
+            }
+            case 4 -> {
+                procesos.add(new Proceso("P1", 0, 6, 3));
+                procesos.add(new Proceso("P2", 1, 4, 1));
+                procesos.add(new Proceso("P3", 2, 8, 4));
+                procesos.add(new Proceso("P4", 3, 3, 2));
+                procesos.add(new Proceso("P5", 5, 5, 5));
             }
         }
         mostrarResumenProcesos(procesos);
@@ -109,10 +118,11 @@ public class SimuladorCPU {
 
     private void mostrarResumenProcesos(List<Proceso> procesos) {
         System.out.println("\nProcesos cargados:");
-        System.out.printf("%-10s | %-10s | %-10s%n", "Proceso", "Llegada", "Ráfaga");
-        System.out.println("----------------------------------------");
+        System.out.printf("%-10s | %-10s | %-10s | %-10s%n", "Proceso", "Llegada", "Ráfaga", "Prioridad");
+        System.out.println("-----------------------------------------------------");
         for (Proceso p : procesos) {
-            System.out.printf("%-10s | %-10d | %-10d%n", p.getId(), p.getTiempoLlegada(), p.getTiempoEjecucion());
+            System.out.printf("%-10s | %-10d | %-10d | %-10d%n",
+                    p.getId(), p.getTiempoLlegada(), p.getTiempoEjecucion(), p.getPrioridad());
         }
     }
 
@@ -167,21 +177,22 @@ public class SimuladorCPU {
 
     private void presentarResultado(ResultadoPlanificacion res) {
         System.out.println("\nAlgoritmo: " + res.getNombreAlgoritmo());
-        System.out.println("-----------------------------------------------------------------------------------------");
-        System.out.printf("%-10s | %-10s | %-10s | %-14s | %-14s | %-12s%n",
-                "Proceso", "Llegada", "Ráfaga", "Finalización", "Retorno (T)", "Espera (W)");
-        System.out.println("-----------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s | %-10s | %-10s | %-10s | %-14s | %-14s | %-12s%n",
+                "Proceso", "Llegada", "Ráfaga", "Prioridad", "Finalización", "Retorno (T)", "Espera (W)");
+        System.out.println("-------------------------------------------------------------------------------------------------------");
 
         for (ResultadoPlanificacion.MetricaProceso m : res.getMetricas()) {
-            System.out.printf("%-10s | %-10d | %-10d | %-14d | %-14d | %-12d%n",
+            System.out.printf("%-10s | %-10d | %-10d | %-10d | %-14d | %-14d | %-12d%n",
                     m.getId(),
                     m.getTiempoLlegada(),
                     m.getTiempoEjecucion(),
+                    m.getPrioridad(),
                     m.getTiempoFinalizacion(),
                     m.getTiempoRetorno(),
                     m.getTiempoEspera());
         }
-        System.out.println("-----------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------");
         System.out.printf("Tiempo de Retorno Promedio: %.2f%n", res.getTiempoRetornoPromedio());
         System.out.printf("Tiempo de Espera Promedio:  %.2f%n", res.getTiempoEsperaPromedio());
 

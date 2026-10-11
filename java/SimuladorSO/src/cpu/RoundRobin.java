@@ -11,6 +11,7 @@ import java.util.Set;
 /**
  * Implementación del algoritmo de planificación Round Robin (RR).
  * Apropiativo (preemptive): asigna a cada proceso una fracción de CPU (quantum).
+ * En caso de empates en el tiempo de llegada, desempata por prioridad.
  */
 public class RoundRobin implements Planificador {
 
@@ -57,8 +58,9 @@ public class RoundRobin implements Planificador {
             listaOrdenada.add(new EstadoProcesoRR(procesos.get(i), i));
         }
 
-        // Orden de llegada determinista; en empate, orden original de ingreso
+        // Orden de llegada determinista; en empate, desempatar por prioridad y luego orden de ingreso
         listaOrdenada.sort(Comparator.comparingInt((EstadoProcesoRR e) -> e.proceso.getTiempoLlegada())
+                .thenComparingInt(e -> e.proceso.getPrioridad())
                 .thenComparingInt(e -> e.indiceOriginal));
 
         Queue<EstadoProcesoRR> colaListos = new ArrayDeque<>();
@@ -114,6 +116,7 @@ public class RoundRobin implements Planificador {
                         actual.proceso.getId(),
                         actual.proceso.getTiempoLlegada(),
                         actual.proceso.getTiempoEjecucion(),
+                        actual.proceso.getPrioridad(),
                         actual.tiempoFinalizacion,
                         retorno,
                         espera

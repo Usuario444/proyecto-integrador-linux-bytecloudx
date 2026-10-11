@@ -9,6 +9,7 @@ import java.util.Set;
 /**
  * Implementación del algoritmo de planificación FCFS (First-Come, First-Served).
  * No apropiativo (non-preemptive): los procesos se ejecutan hasta completarse en orden de llegada.
+ * Ante llegadas simultáneas, utiliza la prioridad como criterio de desempate determinista.
  */
 public class FCFS implements Planificador {
 
@@ -21,7 +22,7 @@ public class FCFS implements Planificador {
     public ResultadoPlanificacion planificar(List<Proceso> procesos) {
         validarProcesos(procesos);
 
-        // Envoltorio para preservar el orden original de inserción como criterio de desempate determinista
+        // Envoltorio para preservar el orden original de inserción como criterio final de desempate
         record ProcesoConIndice(Proceso proceso, int indiceOriginal) {}
 
         List<ProcesoConIndice> lista = new ArrayList<>();
@@ -29,8 +30,10 @@ public class FCFS implements Planificador {
             lista.add(new ProcesoConIndice(procesos.get(i), i));
         }
 
-        // Ordenar por tiempo de llegada ascendente; en caso de empate, usar el orden de ingreso
+        // Ordenar por tiempo de llegada ascendente; en caso de empate, desempatar por prioridad
+        // (menor valor numérico = mayor prioridad) y finalmente por orden de inserción.
         lista.sort(Comparator.comparingInt((ProcesoConIndice p) -> p.proceso().getTiempoLlegada())
+                .thenComparingInt(p -> p.proceso().getPrioridad())
                 .thenComparingInt(ProcesoConIndice::indiceOriginal));
 
         List<ResultadoPlanificacion.SegmentoGantt> diagramaGantt = new ArrayList<>();
@@ -62,6 +65,7 @@ public class FCFS implements Planificador {
                     p.getId(),
                     p.getTiempoLlegada(),
                     p.getTiempoEjecucion(),
+                    p.getPrioridad(),
                     tiempoFinalizacion,
                     tiempoRetorno,
                     tiempoEspera

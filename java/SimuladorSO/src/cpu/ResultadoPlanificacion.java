@@ -18,23 +18,31 @@ public class ResultadoPlanificacion {
         private final String id;
         private final int tiempoLlegada;
         private final int tiempoEjecucion;
+        private final int prioridad;
         private final int tiempoFinalizacion;
         private final int tiempoRetorno;
         private final int tiempoEspera;
 
-        public MetricaProceso(String id, int tiempoLlegada, int tiempoEjecucion,
+        public MetricaProceso(String id, int tiempoLlegada, int tiempoEjecucion, int prioridad,
                               int tiempoFinalizacion, int tiempoRetorno, int tiempoEspera) {
             this.id = id;
             this.tiempoLlegada = tiempoLlegada;
             this.tiempoEjecucion = tiempoEjecucion;
+            this.prioridad = prioridad;
             this.tiempoFinalizacion = tiempoFinalizacion;
             this.tiempoRetorno = tiempoRetorno;
             this.tiempoEspera = tiempoEspera;
         }
 
+        public MetricaProceso(String id, int tiempoLlegada, int tiempoEjecucion,
+                              int tiempoFinalizacion, int tiempoRetorno, int tiempoEspera) {
+            this(id, tiempoLlegada, tiempoEjecucion, 1, tiempoFinalizacion, tiempoRetorno, tiempoEspera);
+        }
+
         public String getId() { return id; }
         public int getTiempoLlegada() { return tiempoLlegada; }
         public int getTiempoEjecucion() { return tiempoEjecucion; }
+        public int getPrioridad() { return prioridad; }
         public int getTiempoFinalizacion() { return tiempoFinalizacion; }
         public int getTiempoRetorno() { return tiempoRetorno; }
         public int getTiempoEspera() { return tiempoEspera; }
