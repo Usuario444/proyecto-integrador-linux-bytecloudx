@@ -201,12 +201,12 @@ Al iniciar, serás recibido por el menú principal:
 ```text
 =================================================================
           SIMULADOR DE SISTEMAS OPERATIVOS (SimuladorSO)        
-   Módulos: 7.1 Planificación de CPU | 7.2 Reemplazo de Páginas 
+        Planificación de CPU | Reemplazo de Páginas             
 =================================================================
 
 ----------------------- MENÚ PRINCIPAL -------------------------
-1. Módulo 7.1: Planificación de CPU (FCFS y Round Robin)
-2. Módulo 7.2: Reemplazo de Páginas en Memoria (FIFO)
+1. Planificación de CPU (FCFS y Round Robin)
+2. Reemplazo de Páginas en Memoria (FIFO)
 3. Salir del programa
 ----------------------------------------------------------------
 Seleccione una opción (1-3): 

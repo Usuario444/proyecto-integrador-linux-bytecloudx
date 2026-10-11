@@ -23,7 +23,7 @@ public class SimuladorCPU {
         boolean volver = false;
         while (!volver) {
             System.out.println("\n=======================================================");
-            System.out.println("          MÓDULO: PLANIFICACIÓN DE CPU");
+            System.out.println("                 PLANIFICACIÓN DE CPU");
             System.out.println("=======================================================");
             System.out.println("1. Ingresar procesos manualmente");
             System.out.println("2. Cargar caso de prueba predefinido (Ejemplo académico)");

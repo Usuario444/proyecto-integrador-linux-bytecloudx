@@ -4,8 +4,8 @@ Consulte la documentacion completa y detallada con diagramas y formato enriqueci
 README.md
 
 Resumen rapido:
-- Modulo 7.1: Planificacion de CPU (FCFS y Round Robin)
-- Modulo 7.2: Reemplazo de Paginas en Memoria Virtual (FIFO)
+- Planificacion de CPU (FCFS y Round Robin)
+- Reemplazo de Paginas en Memoria Virtual (FIFO)
 - Java 21 LTS - Diseno modular y orientado a objetos
 
 Compilacion:

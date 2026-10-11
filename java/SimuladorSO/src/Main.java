@@ -18,14 +18,14 @@ public class Main {
 
         System.out.println("=================================================================");
         System.out.println("          SIMULADOR DE SISTEMAS OPERATIVOS (SimuladorSO)        ");
-        System.out.println("   Módulos: 7.1 Planificación de CPU | 7.2 Reemplazo de Páginas ");
+        System.out.println("        Planificación de CPU | Reemplazo de Páginas             ");
         System.out.println("=================================================================");
 
         boolean salir = false;
         while (!salir) {
             System.out.println("\n----------------------- MENÚ PRINCIPAL -------------------------");
-            System.out.println("1. Módulo 7.1: Planificación de CPU (FCFS y Round Robin)");
-            System.out.println("2. Módulo 7.2: Reemplazo de Páginas en Memoria (FIFO)");
+            System.out.println("1. Planificación de CPU (FCFS y Round Robin)");
+            System.out.println("2. Reemplazo de Páginas en Memoria (FIFO)");
             System.out.println("3. Salir del programa");
             System.out.println("----------------------------------------------------------------");
 

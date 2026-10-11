@@ -22,7 +22,7 @@ public class SimuladorMemoria {
         boolean volver = false;
         while (!volver) {
             System.out.println("\n=======================================================");
-            System.out.println("       MÓDULO: REEMPLAZO DE PÁGINAS (FIFO)");
+            System.out.println("            REEMPLAZO DE PÁGINAS (FIFO)");
             System.out.println("=======================================================");
             System.out.println("1. Ingresar secuencia y marcos manualmente");
             System.out.println("2. Cargar caso de prueba predefinido (Ejemplo académico)");
