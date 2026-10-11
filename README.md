@@ -103,28 +103,12 @@ internos del sistema operativo.
 
 ## 💻 Simuladores Java
 
-### CPU (PC1)
-- **Algoritmos:** FCFS, Round Robin
-- **Cómo ejecutar:**
-```bash
-  cd java/cpu
-  javac Main.java
-  java Main
-```
-
-### Memoria (PC2)
-- **Algoritmo:** FIFO / LRU
-- **Cómo ejecutar:**
-```bash
-  cd java/memoria
-  javac Main.java
-  java Main
-```
-
-### Simulador Integrado de Sistemas Operativos (SimuladorSO)
+### Simulador de Sistemas Operativos (SimuladorSO)
 - **Ubicación:** `java/SimuladorSO`
-- **Módulos:** Planificación de CPU (FCFS y Round Robin) y Reemplazo de Páginas (FIFO).
-- **Cómo ejecutar:**
+- **Módulos implementados:**
+  - **CPU (PC1):** Planificación con FCFS y Round Robin (con quantum y diagrama de Gantt).
+  - **Memoria (PC2):** Reemplazo de páginas con FIFO (matriz paso a paso y estadísticas de fallos/aciertos).
+- **Cómo compilar y ejecutar:**
 ```bash
   cd java/SimuladorSO
   javac -d bin src/Main.java src/cpu/*.java src/memoria/*.java src/util/*.java
