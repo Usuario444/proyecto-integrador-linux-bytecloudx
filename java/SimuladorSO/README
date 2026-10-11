@@ -1,0 +1,15 @@
+# SimuladorSO - Simulador de Sistemas Operativos
+
+Consulte la documentacion completa y detallada con diagramas y formato enriquecido en:
+README.md
+
+Resumen rapido:
+- Modulo 7.1: Planificacion de CPU (FCFS y Round Robin)
+- Modulo 7.2: Reemplazo de Paginas en Memoria Virtual (FIFO)
+- Java 21 LTS - Diseno modular y orientado a objetos
+
+Compilacion:
+  javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | ForEach-Object { $_.FullName })
+
+Ejecucion:
+  java -cp bin Main

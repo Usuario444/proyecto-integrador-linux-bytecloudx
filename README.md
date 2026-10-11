@@ -121,6 +121,16 @@ internos del sistema operativo.
   java Main
 ```
 
+### Simulador Integrado de Sistemas Operativos (SimuladorSO)
+- **Ubicación:** `java/SimuladorSO`
+- **Módulos:** Planificación de CPU (FCFS y Round Robin) y Reemplazo de Páginas (FIFO).
+- **Cómo ejecutar:**
+```bash
+  cd java/SimuladorSO
+  javac -d bin src/Main.java src/cpu/*.java src/memoria/*.java src/util/*.java
+  java -cp bin Main
+```
+
 ## 📜 Scripts Bash (si aplica)
 - `crear_usuarios.sh` — descripción breve
 - `configurar_permisos.sh` — descripción breve
