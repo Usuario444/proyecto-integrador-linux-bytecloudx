@@ -74,7 +74,7 @@ internos del sistema operativo.
   - Permisos configurados con chmod/chown/chgrp según mínimo privilegio
   - Pruebas de acceso permitido y denegado entre grupos
   - Monitoreo de memoria con vmstat y pruebas de swap
-  - Simulador Java de reemplazo de páginas (FIFO/LRU)
+  - Simulador Java de reemplazo de páginas (FIFO)
 
 - [ ] **PC3 (Semana 15)** — E/S, almacenamiento y disco
   - Pendiente: disco virtual adicional y sistema de archivos
@@ -90,12 +90,12 @@ internos del sistema operativo.
 
 ## ⚙️ Tecnologías utilizadas
 - Ubuntu Server LTS (VMware)
-- Java 17+
+- Java 21 LTS
 - Git / GitHub
 - Bash
 
 ## 📁 Estructura del repositorio
-- `java/` — código de los simuladores (CPU, memoria, disco)
+- `java/` — código del simulador integrado `SimuladorSO` (CPU y memoria)
 - `scripts/` — scripts Bash usados para automatizar tareas
 - `docs/` — informes de cada entrega y diagrama de arquitectura
 - `evidencias/` — capturas de pantalla organizadas por entrega
@@ -104,15 +104,30 @@ internos del sistema operativo.
 ## 💻 Simuladores Java
 
 ### Simulador de Sistemas Operativos (SimuladorSO)
-- **Ubicación:** `java/SimuladorSO`
+Módulo interactivo por consola en Java 21 que integra algoritmos de planificación y administración de memoria virtual.
+
+- **Ubicación:** [`java/SimuladorSO/`](java/SimuladorSO/) *(documentación detallada en [`java/SimuladorSO/README.md`](java/SimuladorSO/README.md))*
 - **Módulos implementados:**
-  - **CPU (PC1):** Planificación con FCFS y Round Robin (con quantum y diagrama de Gantt).
-  - **Memoria (PC2):** Reemplazo de páginas con FIFO (matriz paso a paso y estadísticas de fallos/aciertos).
-- **Cómo compilar y ejecutar:**
+  - **Planificación de CPU (PC1):** FCFS (First-Come, First-Served) y Round Robin (con quantum configurable, cálculo de tiempos de espera/retorno y diagrama de Gantt).
+  - **Reemplazo de Páginas en Memoria (PC2):** FIFO (First-In, First-Out con matriz de marcos paso a paso, detección de fallos/aciertos y tasas de rendimiento).
+  - **Planificación de Disco (PC3 - Pendiente):** Módulo proyectado para la Semana 15.
+
+#### Cómo compilar y ejecutar
+
+**En Linux / Bash:**
 ```bash
-  cd java/SimuladorSO
-  javac -d bin src/Main.java src/cpu/*.java src/memoria/*.java src/util/*.java
-  java -cp bin Main
+cd java/SimuladorSO
+mkdir -p bin
+javac -encoding UTF-8 -d bin src/Main.java src/cpu/*.java src/memoria/*.java src/util/*.java
+java -cp bin Main
+```
+
+**En Windows (PowerShell):**
+```powershell
+cd java\SimuladorSO
+if (!(Test-Path "bin")) { New-Item -ItemType Directory -Path "bin" | Out-Null }
+javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | ForEach-Object { $_.FullName })
+java -cp bin Main
 ```
 
 ## 📜 Scripts Bash (si aplica)
