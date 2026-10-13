@@ -26,7 +26,7 @@ public class SimuladorMemoria {
             System.out.println("=======================================================");
             System.out.println("1. Ingresar secuencia y marcos manualmente");
             System.out.println("2. Cargar caso de prueba predefinido (Ejemplo académico)");
-            System.out.println("3. Salir");
+            System.out.println("3. Volver al menú principal");
             System.out.println("=======================================================");
 
             int opcion = consola.leerEntero("Seleccione una opción (1-3): ", 1, 3);

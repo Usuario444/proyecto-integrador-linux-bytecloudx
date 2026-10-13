@@ -12,6 +12,4 @@ Compilacion:
   javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | ForEach-Object { $_.FullName })
 
 Ejecucion:
-  java -cp bin memoria.Main   # Solo Reemplazo de Paginas (FIFO)
-  java -cp bin cpu.Main       # Solo Planificacion de CPU (FCFS y RR)
-  java -cp bin Main           # Menu general unificado
+  java -cp bin Main

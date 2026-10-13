@@ -136,7 +136,6 @@ C:\SimuladorSO\
 ├── src\
 │   ├── Main.java                         # Menú interactivo principal
 │   ├── cpu\
-│   │   ├── Main.java                     # Punto de entrada independiente para CPU
 │   │   ├── Proceso.java                  # Modelo inmutable de proceso
 │   │   ├── Planificador.java             # Interfaz común de planificación
 │   │   ├── FCFS.java                     # Algoritmo First-Come, First-Served
@@ -144,7 +143,6 @@ C:\SimuladorSO\
 │   │   ├── ResultadoPlanificacion.java   # Contenedor de métricas y segmentos Gantt
 │   │   └── SimuladorCPU.java             # Controlador y formateador de tablas CPU
 │   ├── memoria\
-│   │   ├── Main.java                     # Punto de entrada independiente para Memoria
 │   │   ├── AlgoritmoReemplazo.java       # Interfaz común de reemplazo de memoria
 │   │   ├── FIFO.java                     # Algoritmo FIFO con preservación de orden
 │   │   ├── PasoReemplazo.java            # Snapshot inmutable de cada referencia
@@ -181,19 +179,8 @@ javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | 
 
 ### Ejecución
 
-Una vez compilado, puedes ejecutar el simulador que necesites:
+Una vez compilado, ejecuta la clase principal:
 
-**1. Ejecutar únicamente el simulador de Memoria (FIFO independiente):**
-```powershell
-java -cp bin memoria.Main
-```
-
-**2. Ejecutar únicamente el simulador de CPU (FCFS / Round Robin independiente):**
-```powershell
-java -cp bin cpu.Main
-```
-
-**3. Ejecutar el menú general unificado:**
 ```powershell
 java -cp bin Main
 ```
@@ -203,10 +190,7 @@ El proyecto ya cuenta con el archivo de configuración `.iml` y la estructura `.
 1. Abre IntelliJ IDEA.
 2. Selecciona **File -> Open...** y elige la carpeta `C:\SimuladorSO`.
 3. Asegúrate de tener seleccionado el SDK Java 21 en **File -> Project Structure -> Project SDK**.
-4. Haz clic derecho sobre el `Main.java` que desees ejecutar y selecciona **Run 'Main'**:
-   - `src/memoria/Main.java` 👉 Para correr únicamente el simulador de memoria (FIFO).
-   - `src/cpu/Main.java` 👉 Para correr únicamente el simulador de CPU.
-   - `src/Main.java` 👉 Para correr el menú unificado.
+4. Haz clic derecho sobre `src/Main.java` y selecciona **Run 'Main'**.
 
 ---
 

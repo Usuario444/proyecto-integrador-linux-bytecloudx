@@ -118,15 +118,7 @@ Módulo interactivo por consola en Java 21 que integra algoritmos de planificaci
 ```bash
 cd java/SimuladorSO
 mkdir -p bin
-javac -encoding UTF-8 -d bin $(find src -name "*.java")
-
-# Ejecutar únicamente Reemplazo de Páginas (FIFO):
-java -cp bin memoria.Main
-
-# Ejecutar únicamente Planificación de CPU:
-java -cp bin cpu.Main
-
-# Ejecutar el menú unificado:
+javac -encoding UTF-8 -d bin src/Main.java src/cpu/*.java src/memoria/*.java src/util/*.java
 java -cp bin Main
 ```
 
@@ -135,14 +127,6 @@ java -cp bin Main
 cd java\SimuladorSO
 if (!(Test-Path "bin")) { New-Item -ItemType Directory -Path "bin" | Out-Null }
 javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Filter *.java -Recurse | ForEach-Object { $_.FullName })
-
-# Ejecutar únicamente Reemplazo de Páginas (FIFO):
-java -cp bin memoria.Main
-
-# Ejecutar únicamente Planificación de CPU:
-java -cp bin cpu.Main
-
-# Ejecutar el menú unificado:
 java -cp bin Main
 ```
 
